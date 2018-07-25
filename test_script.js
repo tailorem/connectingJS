@@ -1,5 +1,3 @@
-// "use strict";
-
 const pg = require("pg");
 const settings = require("./settings"); // settings.json
 
@@ -12,7 +10,7 @@ const client = new pg.Client({
   ssl      : settings.ssl
 });
 
-console.log(pg.Client.Query);
+// console.log(pg.Client);
 
 client.connect((err) => {
   if (err) {

@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/tailorem/connectingJS/issues"
   },
-  "homepage": "https://github.com/tailorem/connectingJS#readme"
+  "homepage": "https://github.com/tailorem/connectingJS#readme",
+  "dependencies": {
+    "moment": "^2.22.2"
+  }
 }
