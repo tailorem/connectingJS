@@ -14,8 +14,6 @@ const client = new pg.Client({
   ssl      : settings.ssl
 });
 
-// console.log(args);
-
 function formatResult(result) {
   return {
     name: `${result.first_name} ${result.last_name}`,
@@ -38,13 +36,7 @@ client.connect((err) => {
       result = formatResult(person);
       return result;
     });
-    // console.log(found2);
 
-    // const found = [];
-    // res.rows.forEach(function(person) {
-    //   formatted = formatResult(person);
-    //   found.push(formatted);
-    // });
     console.log("Searching...");
     console.log(`Found ${res.rowCount} person(s) by the name '${args}':`);
     found.forEach((person, index) => {
@@ -56,11 +48,4 @@ client.connect((err) => {
 });
 
 // module.exports = client;
-
-// DESIRED RESULT
-// node lookup_people.js Paul
-// Searching ...
-// Found 2 person(s) by the name 'Paul':
-// - 1: Paul Rudd, born '1969-04-06'
-// - 2: Paul Giamatti, born '1967-06-06'
 
