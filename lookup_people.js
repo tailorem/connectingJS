@@ -1,6 +1,5 @@
 // "use strict";
 const args = process.argv[2];
-// const db = require("./test_script");
 const pg = require("pg");
 const settings = require("./settings"); // settings.json
 const moment = require("moment");
