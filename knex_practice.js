@@ -49,11 +49,12 @@ knex("famous_people")
 // .where("famous_people.last_name")
 .whereRaw("famous_people.first_name=? OR famous_people.last_name=?", [args, args])
 .asCallback((err, result) => {
-  if (err) {
-    console.log("D'OH, AN ERROR HAPPENED.");
-    return console.error("Error:", err);
-  }
-  console.log("Searching...");
+  // console.log(arguments);
+  handleErr(err);
+  // const count = result.length;
+  // console.log(result);
+  console.log("Searching...", result);
+  console.log(result);
   console.log(`Found ${result.length} person(s) by the name '${args}':`);
   result.forEach((person, index) => {
     console.log(`- ${index + 1}: ${person.f_name} ${person.l_name}, born '${person.dob}'`);
