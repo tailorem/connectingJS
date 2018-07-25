@@ -23,7 +23,7 @@ function formatResult(result) {
 
 client.connect((err) => {
   if (err) {
-  console.log("D'OH, A CONNECTION ERROR HAPPENED.");
+    console.log("D'OH, A CONNECTION ERROR HAPPENED.");
     return console.error("Connection Error", err);
   }
   client.query("SELECT first_name, last_name, birthdate FROM famous_people WHERE first_name=$1::text OR last_name=$1::text", [args], (err, res) => {
@@ -33,8 +33,7 @@ client.connect((err) => {
     }
 
     const found = res.rows.map(person => {
-      result = formatResult(person);
-      return result;
+      return formatResult(person);
     });
 
     console.log("Searching...");
@@ -42,7 +41,6 @@ client.connect((err) => {
     found.forEach((person, index) => {
       console.log(`- ${index + 1}: ${person.name}, born '${moment(person.birthdate).format("YYYY-MM-DD")}'`);
     });
-    // console.log(`- ${}`); //output: 1
     client.end();
   });
 });
